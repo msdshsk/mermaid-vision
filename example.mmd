@@ -1,0 +1,11 @@
+flowchart TD
+    A[開始] --> B{条件分岐}
+    B -->|Yes| C[処理A]
+    B -->|No| D[処理B]
+    C --> E[結果の集約]
+    D --> E
+    E --> F[終了]
+
+    style A fill:#90EE90
+    style F fill:#FFB6C1
+    style B fill:#87CEEB

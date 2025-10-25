@@ -1,0 +1,89 @@
+{
+  "name": "mermaid-vision",
+  "displayName": "Mermaid Vision",
+  "description": "高機能なMermaid図プレビュー - ズーム、パン、自動フィット、高解像度エクスポート対応",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "mermaid",
+    "diagram",
+    "preview",
+    "visualization",
+    "markdown",
+    "vision",
+    "zoom",
+    "pan",
+    "export"
+  ],
+  "activationEvents": [
+    "onCommand:mermaid-preview.previewSelectedBlock",
+    "onLanguage:markdown"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mermaid-preview.previewSelectedBlock",
+        "title": "Mermaid: Preview Diagram",
+        "icon": "$(eye)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "mermaid-preview.previewSelectedBlock",
+        "key": "ctrl+shift+m",
+        "mac": "cmd+shift+m",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "mermaid-preview.previewSelectedBlock",
+          "when": "editorLangId == markdown || resourceExtname == .mmd",
+          "group": "navigation@1"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "mermaid-preview.previewSelectedBlock",
+          "when": "editorLangId == markdown || resourceExtname == .mmd",
+          "group": "navigation"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "id": "mermaid",
+        "extensions": [".mmd"],
+        "aliases": ["Mermaid", "mermaid"],
+        "configuration": "./language-configuration.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.x",
+    "@typescript-eslint/parser": "^6.x",
+    "eslint": "^8.x",
+    "typescript": "^5.2.0"
+  },
+  "dependencies": {}
+}
