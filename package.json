@@ -77,6 +77,15 @@
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msdshsk/mermaid-vision.git"
+  },
+  "bugs": {
+    "url": "https://github.com/msdshsk/mermaid-vision/issues"
+  },
+  "homepage": "https://github.com/msdshsk/mermaid-vision#readme",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.x",
     "@types/vscode": "^1.80.0",
